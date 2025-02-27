@@ -156,10 +156,6 @@
 
 // Implement the Fibonacci sequence using recursion.
 
-// function fact(){
-//     let fact=1;
-// }
-
 //Write a function to flatten a nested array.
 
 // function flattenArray(arr) {
