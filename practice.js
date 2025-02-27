@@ -100,5 +100,3 @@ console.log(ab === cd); //Output: false for both, because ab and cd are differen
 
 let bc = ab;
 console.log(ab == bc); //Since ab and bc refer to the same array in memory, they are equal by reference.
-
-////////////
