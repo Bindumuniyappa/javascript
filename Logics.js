@@ -256,3 +256,15 @@ console.log(fibonacci(10));
 //   return res;
 // }
 // console.log(numberToRoman(34));
+
+function mergeTwoAlternateStrings(str1, str2) {
+  const str11 = str1.split("");
+  const str22 = str2.split("");
+  const res = [];
+  for (let i = 0; i < str11.length; i++) {
+    res.push(str11[i]);
+    res.push(str22[i]);
+  }
+  return res.join("");
+}
+console.log(mergeTwoAlternateStrings("Hellothere", "Worldwide"));
