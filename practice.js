@@ -95,7 +95,8 @@ fact();
 let ab = [1, 2, 3];
 let cd = [1, 2, 3];
 
-console.log(ab == cd); //Both ab and cd are arrays. Even though they contain the same values ([1, 2, 3]), arrays are reference types in JavaScript. This means two separate arrays, even if they have the same contents, are considered different objects in memory.
+console.log(ab == cd); //Both ab and cd are arrays. Even though they contain the same values ([1, 2, 3]), arrays are reference types in JavaScript.
+// This means two separate arrays, even if they have the same contents, are considered different objects in memory.
 console.log(ab === cd); //Output: false for both, because ab and cd are different objects in memory, not the same reference.
 
 let bc = ab;

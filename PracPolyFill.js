@@ -38,3 +38,40 @@
 // let arr = [1, 2, 3, 4];
 // let accu = arr.myReduce((acc, ini) => acc + ini, 0);
 // console.log(accu);
+
+//==================================================================================>>>>>>>>>>>>>>>>
+
+//promise.all polyfill
+
+function promiseAll(promises) {
+  return new Promise((resolve, reject) => {
+    let results = 0;
+    let completedPromises = 0;
+    if (promises.length === 0) {
+      resolve([]);
+      return;
+    }
+    promises.forEach((promise, index) => {
+      Promise.resolve(promise)
+        .then((result) => {
+          results[index] = result;
+          completedPromises++;
+          if (completedPromises === promises.length) {
+            return resolve[results];
+          }
+        })
+        .catch((error) => console.log(error));
+    });
+  });
+}
+let p1 = Promise.reject("p1");
+let p2 = new Promise((resolve) => setTimeout(() => resolve(20), 1000));
+let p3 = Promise.resolve("p3");
+
+promiseAll([p1, p2, p3])
+  .then((value) => {
+    console.log(value);
+  })
+  .catch((error) => {
+    console.log(error);
+  });

@@ -268,3 +268,18 @@ function mergeTwoAlternateStrings(str1, str2) {
   return res.join("");
 }
 console.log(mergeTwoAlternateStrings("Hellothere", "Worldwide"));
+
+//===============================================================================>>>>>>>>>>>>>
+
+//convert array into nested array
+
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+function nestingArr(arr, n) {
+  let nestedArr = [];
+  for (let i = 0; i < arr.length; i = i + n) {
+    let chunck = arr.slice(i, i + n);
+    nestedArr.push(chunck);
+  }
+  return nestedArr;
+}
+console.log(nestingArr(arr, 3));
