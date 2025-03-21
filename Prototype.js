@@ -173,13 +173,16 @@ console.log(flatteningArray([1, 2, [3, [4, 5], 6], 7, 8]));
 
 //=======================================================================
 //promise.all=====>waits for all promises to resolve or reject ...if any promise is rejected the whole promise.all fails...
-// let p1 = Promise.reject("p1");
-// let p2 = new Promise((resolve) => setTimeout(() => resolve(20), 1000));
-// let p3 = Promise.resolve("p3");
+let p1 = Promise.reject("p1");
+let p2 = new Promise((resolve) => setTimeout(() => resolve(20), 1000));
+let p3 = Promise.resolve("p3");
 
-// let result = Promise.all([p1, p2, p3])
-//   .then((value) => console.log(value))
-//   .catch((error) => console.log(error));
+let result = Promise.all([p1, p2, p3])
+  .then((value) => console.log(value))
+  .catch((error) => console.log(error)); //p1
+
+//===----->>>>Note:>>>Promise.all() only succeeds if all promises resolve.
+// If any promise rejects, it immediately rejects with that error and stops processing further.
 
 //===========================================================================
 //promise.allSettled()===>Waits for all promises to complete, whether they resolve or reject.
@@ -203,14 +206,13 @@ console.log(flatteningArray([1, 2, [3, [4, 5], 6], 7, 8]));
 // Promise.race([p0, p1, p2])
 //   .then((value) => console.log(value)) // p0
 //   .catch((error) => console.log(error));
-
 //=====================================================================================>>>>>>>>>.
 //Promise.any(promises)=>Resolves as soon as the first successful promise resolves.
 //  If all promises reject, it throws an AggregateError
-const p1 = Promise.reject("Error 1");
-const p2 = new Promise((resolve) => setTimeout(() => resolve("Success"), 1000));
-const p3 = Promise.reject("Error 2");
+// const p1 = Promise.reject("Error 1");
+// const p2 = new Promise((resolve) => setTimeout(() => resolve("Success"), 1000));
+// const p3 = Promise.reject("Error 2");
 
-Promise.any([p1, p2, p3])
-  .then((value) => console.log(value)) // ✅ "Success" (first resolved)
-  .catch((error) => console.log(error.errors)); // ❌ If all fail, returns an array of errors
+// Promise.any([p1, p2, p3])
+//   .then((value) => console.log(value)) // ✅ "Success" (first resolved)
+//   .catch((error) => console.log(error.errors)); // ❌ If all fail, returns an array of errors

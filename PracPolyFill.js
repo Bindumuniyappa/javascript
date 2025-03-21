@@ -75,3 +75,28 @@ promiseAll([p1, p2, p3])
   .catch((error) => {
     console.log(error);
   });
+
+///---------------------------------------------------------------------->>>>>>>>>>>>>
+
+// console.log(a); //undefined
+// console.log(b); //reference error ---b is not defined
+// var a = (b = 5);
+
+//------------------------------------------------------------------------->>>>>>>>>>>>
+
+console.log(1 < 2 < 3); //true
+console.log(3 > 2 > 1); //false
+
+//------------------------------------------------------------------->>>>>>>>>>>>>>>>>>>>>>
+const foo1 = () => {
+  console.log(this.name); //undefined
+};
+foo1.call({ name: "bindu" });
+const foo = function () {
+  console.log(this.name); //bindu
+  const bar = () => {
+    console.log(this.name); //bindu
+  };
+  bar();
+};
+foo.call({ name: "bindu" });
